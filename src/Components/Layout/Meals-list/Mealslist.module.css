@@ -1,18 +1,37 @@
-.list{
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 0.5rem;
+.list {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 0.5rem;
 }
-.outer{
-    width: 60%;
-    margin: 1rem auto;
-    padding: 1rem;
-    color: black;    
+.outer {
+  width: 60%;
+  margin: 1rem auto;
+  padding: 1rem;
+  color: black;
 }
-.list .title{
+.list .title {
+  font-weight: bold;
+}
+.price {
+  font-weight: bold;
+  color: brown;
+}
+.display {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.quantity {
+  padding-bottom: 0.5rem;
+}
+.quantity label{
     font-weight: bold;
 }
-.price{
-    font-weight: bold;
-    color: brown;
+.quantity input {
+  margin-left: 1rem;
+  padding-left: 0.25rem;
+  width: 45px;
+}
+.quantity input:focus {
+  outline: none;
 }
