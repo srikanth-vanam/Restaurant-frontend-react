@@ -1,0 +1,18 @@
+.list{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0.5rem;
+}
+.outer{
+    width: 60%;
+    margin: 1rem auto;
+    padding: 1rem;
+    color: black;    
+}
+.list .title{
+    font-weight: bold;
+}
+.price{
+    font-weight: bold;
+    color: brown;
+}
