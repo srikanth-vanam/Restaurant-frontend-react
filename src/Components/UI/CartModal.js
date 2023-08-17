@@ -3,7 +3,7 @@ import Button from "./Button";
 import Card from "./Card";
 import classes from "./CartModal.module.css";
 const Backdrop = (props) => {
-  return <div className={classes.backdrop}></div>;
+  return <div className={classes.backdrop} onClick={props.onConfirm}></div>;
 };
 
 const Overlay = (props) => {
@@ -15,8 +15,8 @@ const Overlay = (props) => {
         <p>{props.total}</p>
       </div>
       <div className={classes.buttons}>
-        <Button>Close</Button>
-        <Button>Okay</Button>
+        <Button onClick={props.onConfirm}>Close</Button>
+        <Button >Order</Button>
       </div>
     </Card>
   );
@@ -25,11 +25,11 @@ const CardModal = (props) => {
   return (
     <>
       {ReactDOM.createPortal(
-        <Backdrop />,
+        <Backdrop onConfirm={props.onConfirm}/>,
         document.getElementById("backdrop-root")
       )}
       {ReactDOM.createPortal(
-        <Overlay title="sushi" total="$30.5" />,
+        <Overlay title="sushi" total="$30.5" onConfirm={props.onConfirm} />,
         document.getElementById("overlay-root")
       )}
     </>
