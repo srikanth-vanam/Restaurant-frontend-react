@@ -1,7 +1,8 @@
-.button{
-    padding: 0.5rem 2rem;
-    background-color: brown;
-    border-radius: 25px;
-    border: 1px solid brown;
-    color: white;
+.button {
+  margin-left: 0.25rem;
+  padding: 0.5rem 2rem;
+  background-color: brown;
+  border-radius: 25px;
+  border: 1px solid brown;
+  color: white;
 }

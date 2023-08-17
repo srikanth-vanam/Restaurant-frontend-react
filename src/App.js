@@ -1,6 +1,7 @@
 import Header from "./Components/Layout/LandingPage/Header";
 import Mealslist from "./Components/Layout/Meals-list/Mealslist";
 import Summary from "./Components/Layout/Summary/Summary";
+import CartModal from "./Components/UI/CartModal";
 
 function App() {
   const mealsArray = [
@@ -27,6 +28,7 @@ function App() {
   ];
   return (
     <>
+      <CartModal />
       <Header />
       <Summary />
       <Mealslist list={mealsArray} />
