@@ -3,44 +3,49 @@ import Header from "./Components/Layout/LandingPage/Header";
 import Mealslist from "./Components/Layout/Meals-list/Mealslist";
 import Summary from "./Components/Layout/Summary/Summary";
 import CartModal from "./Components/UI/CartModal";
+import CartProvider from "./Components/Store/CartProvider";
 
 function App() {
-  const [cartShow,setCartShow]=useState(false);
-  const cartShowHandler=()=>{
+  const [cartShow, setCartShow] = useState(false);
+  const cartShowHandler = () => {
     setCartShow(true);
-  }
-  const cartHideHandler=()=>{
+  };
+  const cartHideHandler = () => {
     setCartShow(false);
-  }
+  };
   const mealsArray = [
     {
+      id:"1",
       title: "Sushi",
       description: "Fish dish famous in japan",
       price: "$30.0",
     },
     {
+      id:"2",
       title: "Salad",
       description: "Made with fresh leafy vegetables",
       price: "$20.0",
     },
     {
+      id:"3",
       title: "Chocolate cake",
       description: "Home-made chocolate cake ",
       price: "$15.5",
     },
     {
+      id:"4",
       title: "Satvic roti",
       description: "Different from normal roti ",
       price: "$3",
     },
   ];
   return (
-    <>
-      {cartShow && <CartModal onConfirm={cartHideHandler}/>}
-      <Header onCartShow={cartShowHandler}/>
+    <CartProvider>
+      {cartShow && <CartModal onConfirm={cartHideHandler} />}
+      <Header onCartShow={cartShowHandler} />
       <Summary />
       <Mealslist list={mealsArray} />
-    </>
+    </CartProvider>
   );
 }
 
