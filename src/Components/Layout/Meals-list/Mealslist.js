@@ -8,7 +8,7 @@ const Mealslist = (props) => {
   const ctx=useContext(CartContext);
   const addItem=(item)=>{
     const quantity=document.getElementById(item.id).value;
-    ctx.addItems({...item,quantity:quantity});
+    ctx.addItems({...item,quantity:+quantity});
   }
   return (
     <Card className={classes.outer}>

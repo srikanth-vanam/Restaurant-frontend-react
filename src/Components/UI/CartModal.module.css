@@ -1,13 +1,15 @@
 .modal {
   position: fixed;
-  top: 30vh;
+  top: 20vh;
   left: 30%;
   width: 40%;
   z-index: 100;
   overflow: hidden;
+  max-height: 60vh;
+  overflow-y: auto;
   color: black;
   background-color: white;
-  padding: 1rem;
+  padding: 2rem;
 }
 
 .backdrop {
@@ -24,8 +26,21 @@
   font-weight: bolder;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+.amount button{
+  height:2rem;
+  color: brown;
+  font-weight: bold;
+  font-size: 1rem;
+  padding-left: .5rem;
+  padding-right: .5rem;
+
 }
 .buttons {
   display: flex;
   justify-content: flex-end;
+}
+ button{ 
+  margin-left: 1rem;
 }

@@ -11,32 +11,40 @@ const Backdrop = (props) => {
 
 const Overlay = (props) => {
   const ctx = useContext(CartContext);
-  let totalAmount=0;
+  const addItemQuantity=(item)=>{
+    ctx.addItems({...item,quantity:1});
+  }
+  const removeItemQuantity=(item)=>{
+    ctx.removeItems({...item,quantity:1});
+  }
+  // need to calculate total amount of cartItems
+  let totalAmount = 0;
   return (
     <Card className={classes.modal}>
       {ctx.items.map((item) => (
         <>
           <span>{item.title}</span>
           <div className={classes.amount}>
-            <p>Individual Amount</p>
-            <p>{item.price}</p>
-            <p>quantity </p>
-            <p>{item.quantity}</p>
+            <div className={classes.amount}>
+              <p>{item.price}</p>
+              <button>x{item.quantity}</button>
+            </div>
+            <div className={classes.modifiers}>
+              <button onClick={()=>removeItemQuantity(item)}>-</button>
+              <button onClick={()=>addItemQuantity(item)}>+</button>
+            </div>
           </div>
-          {/* <div className={classes.amount}>
-            
-          </div> */}
           <hr></hr>
         </>
       ))}
-          <div className={classes.amount}>
-            <p>Total Amount</p>
-            <p>{totalAmount}</p>
-          </div>
-          <div className={classes.buttons}>
-            <Button onClick={props.onConfirm}>Close</Button>
-            <Button>Order</Button>
-          </div>
+      <div className={classes.amount}>
+        <p>Total Amount</p>
+        <p>{totalAmount}</p>
+      </div>
+      <div className={classes.buttons}>
+        <Button onClick={props.onConfirm}>Close</Button>
+        <Button>Order</Button>
+      </div>
     </Card>
   );
 };
