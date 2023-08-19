@@ -4,8 +4,13 @@ import CartContext from "../../Store/Cart-context";
 import { useContext } from "react";
 const Header = (props) => {
   const CartCtxt = useContext(CartContext);
-  // here i want to show items count not the items quantity
-  const numberOfItems=CartCtxt.items.length;
+
+  // to display the count of items quantity
+  let numberOfItems = 0;
+  CartCtxt.items.forEach((item) => {
+    numberOfItems += item.quantity;
+  });
+
   return (
     <>
       <header className={classes.outer}>

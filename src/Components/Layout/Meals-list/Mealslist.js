@@ -5,13 +5,13 @@ import CartContext from "../../Store/Cart-context";
 import { useContext } from "react";
 
 const Mealslist = (props) => {
-  const ctx=useContext(CartContext);
-  const addItem=(item)=>{
-    const quantity=document.getElementById(item.id).value;
-    ctx.addItems({...item,quantity:+quantity});
-    // making its value to zero 
-    document.getElementById(item.id).value=0;
-  }
+  const ctx = useContext(CartContext);
+  const addItem = (item) => {
+    const quantity = document.getElementById(item.id).value;
+    ctx.addItems({ ...item, quantity: +quantity });
+    // making its value to zero
+    document.getElementById(item.id).value = 0;
+  };
   return (
     <Card className={classes.outer}>
       {props.list.map((item) => (
@@ -25,9 +25,14 @@ const Mealslist = (props) => {
             <div>
               <form className={classes.quantity}>
                 <label>Amount</label>
-                <input type="number" id={item.id} min={1} max={5} defaultValue={0}></input>
+                <input
+                  type="number"
+                  id={item.id}
+                  min={1}
+                  defaultValue={0}
+                ></input>
               </form>
-              <Button onClick={()=>addItem(item)}>+Add</Button>
+              <Button onClick={() => addItem(item)}>+Add</Button>
             </div>
           </div>
           <hr></hr>

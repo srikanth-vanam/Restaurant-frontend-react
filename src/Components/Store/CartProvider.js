@@ -36,7 +36,11 @@ const CartProvider = (props) => {
           }
         }
       }
-      return itemsArray;
+      // to remove items if quantity is zero
+      const newCartItems = itemsArray.filter((item) => {
+        return item.quantity !== 0;
+      });
+      return newCartItems;
     });
   };
   const cartContext = {
