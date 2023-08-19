@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Header from "./Components/Layout/LandingPage/Header";
+import Header from "./Components/Layout/Header/Header";
 import Mealslist from "./Components/Layout/Meals-list/Mealslist";
 import Summary from "./Components/Layout/Summary/Summary";
-import CartModal from "./Components/UI/CartModal";
+import CartModal from "./Components/Cart/CartModal";
 import CartProvider from "./Components/Store/CartProvider";
 
 function App() {
@@ -15,25 +15,25 @@ function App() {
   };
   const mealsArray = [
     {
-      id:"1",
+      id:"meal-1",
       title: "Sushi",
       description: "Fish dish famous in japan",
       price: "$30.0",
     },
     {
-      id:"2",
+      id:"meal-2",
       title: "Salad",
       description: "Made with fresh leafy vegetables",
       price: "$20.0",
     },
     {
-      id:"3",
+      id:"meal-3",
       title: "Chocolate cake",
       description: "Home-made chocolate cake ",
       price: "$15.5",
     },
     {
-      id:"4",
+      id:"meal-4",
       title: "Satvic roti",
       description: "Different from normal roti ",
       price: "$3",

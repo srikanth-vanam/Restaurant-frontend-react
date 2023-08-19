@@ -9,6 +9,8 @@ const Mealslist = (props) => {
   const addItem=(item)=>{
     const quantity=document.getElementById(item.id).value;
     ctx.addItems({...item,quantity:+quantity});
+    // making its value to zero 
+    document.getElementById(item.id).value=0;
   }
   return (
     <Card className={classes.outer}>
@@ -23,7 +25,7 @@ const Mealslist = (props) => {
             <div>
               <form className={classes.quantity}>
                 <label>Amount</label>
-                <input type="number" id={item.id}></input>
+                <input type="number" id={item.id} min={1} max={5} defaultValue={0}></input>
               </form>
               <Button onClick={()=>addItem(item)}>+Add</Button>
             </div>

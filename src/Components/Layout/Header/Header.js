@@ -4,7 +4,7 @@ import CartContext from "../../Store/Cart-context";
 import { useContext } from "react";
 const Header = (props) => {
   const CartCtxt = useContext(CartContext);
-  // here we want to show items count not the items quantity
+  // here i want to show items count not the items quantity
   const numberOfItems=CartCtxt.items.length;
   return (
     <>

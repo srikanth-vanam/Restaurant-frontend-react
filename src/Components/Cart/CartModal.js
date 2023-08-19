@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom";
-import Button from "./Button";
-import Card from "./Card";
+import Button from "../UI/Button";
+import Card from "../UI/Card";
 import classes from "./CartModal.module.css";
 import CartContext from "../Store/Cart-context";
 import { useContext } from "react";
@@ -11,31 +11,39 @@ const Backdrop = (props) => {
 
 const Overlay = (props) => {
   const ctx = useContext(CartContext);
-  const addItemQuantity=(item)=>{
-    ctx.addItems({...item,quantity:1});
-  }
-  const removeItemQuantity=(item)=>{
-    ctx.removeItems({...item,quantity:1});
-  }
+  const addItemQuantity = (item) => {
+    ctx.addItems({ ...item, quantity: 1 });
+  };
+  const removeItemQuantity = (item) => {
+    ctx.removeItems({ ...item, quantity: 1 });
+  };
   // need to calculate total amount of cartItems
   let totalAmount = 0;
+  if (ctx.items.length !== 0) {
+    ctx.items.forEach((item) => {
+      if (item.quantity !== 0) {
+        const newPrice =  item.price.split("$")[1];
+        totalAmount += (item.quantity * newPrice);
+      }
+    });
+  }
   return (
     <Card className={classes.modal}>
       {ctx.items.map((item) => (
-        <>
-          <span>{item.title}</span>
-          <div className={classes.amount}>
+          <div key={item.id}>
+            <span>{item.title}</span>
             <div className={classes.amount}>
-              <p>{item.price}</p>
-              <button>x{item.quantity}</button>
+              <div className={classes.amount}>
+                <p>{item.price}</p>
+                <button>x{item.quantity}</button>
+              </div>
+              <div className={classes.modifiers}>
+                <button onClick={() => removeItemQuantity(item)}>-</button>
+                <button onClick={() => addItemQuantity(item)}>+</button>
+              </div>
             </div>
-            <div className={classes.modifiers}>
-              <button onClick={()=>removeItemQuantity(item)}>-</button>
-              <button onClick={()=>addItemQuantity(item)}>+</button>
-            </div>
+            <hr></hr>
           </div>
-          <hr></hr>
-        </>
       ))}
       <div className={classes.amount}>
         <p>Total Amount</p>
