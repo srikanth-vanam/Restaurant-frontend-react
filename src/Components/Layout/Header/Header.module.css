@@ -21,6 +21,7 @@
   justify-content: space-between;
   align-items: center;
   border: 1px solid rgba(53, 2, 2, 0.815);
+  cursor: pointer;
 }
 .outer button .icon {
   width: 100%;

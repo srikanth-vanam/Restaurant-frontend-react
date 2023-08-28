@@ -23,6 +23,7 @@ const CartProvider = (props) => {
       return oldItems;
     });
   };
+
   const removeItemsHandler = (item) => {
     setCartItems((prevItems) => {
       let itemsArray = [...prevItems];
@@ -43,11 +44,23 @@ const CartProvider = (props) => {
       return newCartItems;
     });
   };
+
+  const OrderHandler=()=>{
+    if(cartItems.length===0){
+      alert("Cart is empty, please purchase items to Place Order");
+    }
+    else{
+      setCartItems([]);
+      alert("Thank you for the purchase!!!");
+    }
+  }
+
   const cartContext = {
     items: cartItems,
     totalAmount: 0,
     addItems: addItemsHandler,
     removeItems: removeItemsHandler,
+    placeOrder:OrderHandler,
   };
   return (
     <CartContext.Provider value={cartContext}>

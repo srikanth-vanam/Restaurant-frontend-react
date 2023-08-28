@@ -47,11 +47,11 @@ const Overlay = (props) => {
       ))}
       <div className={classes.amount}>
         <p>Total Amount</p>
-        <p>{totalAmount}</p>
+        <p>${totalAmount}</p>
       </div>
       <div className={classes.buttons}>
         <Button onClick={props.onConfirm}>Close</Button>
-        <Button>Order</Button>
+        <Button onClick={()=>ctx.placeOrder()}>Order</Button>
       </div>
     </Card>
   );
